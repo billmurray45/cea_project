@@ -12,7 +12,6 @@ class RegisterForm(BaseModel):
     email: str
     username: str
     password: str
-    confirm_password: str
     full_name: Optional[str] = None
 
 
