@@ -9,7 +9,7 @@ class UserBase(BaseModel):
 
 
 class RegisterForm(BaseModel):
-    email: str
+    email: EmailStr
     username: str
     password: str
     full_name: Optional[str] = None
