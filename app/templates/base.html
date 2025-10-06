@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разработка интегрированных энергосберегающих технологий для морских операций в Каспийском море</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="http://cae.yu.edu.kz/wp-content/uploads/2025/01/blue_logo.png" alt="Логотип проекта">
+            </a>
+
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#tasks">Задачи</a></li>
+                <li><a href="#partners">Партнёры</a></li>
+                <li><a href="#region">Регион</a></li>
+                <li><a href="#publications">Публикации</a></li>
+                <li><a href="#news">Новости</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+
+            <div class="user-menu">
+                <div class="user-icon" id="userIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" class="dropdown-item" id="registerBtn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Регистрация</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Вход</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+{% block content %}
+{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://cae.yu.edu.kz/wp-content/uploads/2025/02/a%D2%9B-log1-1.png" alt="Логотип проекта">
+                    </div>
+                    <p>Разработка интегрированных энергосберегающих технологий для повышения эффективности и экологической устойчивости морских операций.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#about">О проекте</a></li>
+                        <li><a href="#tasks">Задачи</a></li>
+                        <li><a href="#partners">Партнёры</a></li>
+                        <li><a href="#publications">Публикации</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Подписка на новости</h3>
+                    <p>Будьте в курсе последних событий нашего проекта.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Ваш email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Научный проект "Каспийские энергосберегающие технологии". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+        <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Регистрация</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="modal-subtitle">Создайте аккаунт для доступа к системе</p>
+
+            <form class="modal-form" id="registerForm" method="POST">
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="example@email.com"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Имя пользователя <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            placeholder="Введите имя пользователя"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Введите пароль"
+                            required
+                        >
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Подтверждение пароля <span class="required">*</span></label>
+                    <div class="input-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            class="form-control"
+                            placeholder="Повторите пароль"
+                            required
+                        >
+                        <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>Зарегистрироваться</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div class="modal-footer">
+                    <p>Уже есть аккаунт? <a href="#" class="link" id="switchToLogin">Войти</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Here you would normally send the form data to a server
+                alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
+                contactForm.reset();
+            });
+        }
+
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Here you would normally send the email to a server
+                alert('Спасибо за подписку!');
+                newsletterForm.reset();
+            });
+        }
+
+        // User menu dropdown
+        const userIcon = document.getElementById('userIcon');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (userIcon && userDropdown) {
+            userIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                userDropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!userIcon.contains(e.target) && !userDropdown.contains(e.target)) {
+                    userDropdown.classList.remove('active');
+                }
+            });
+        }
+
+        // Modal functionality
+        const registerModal = document.getElementById('registerModal');
+        const registerBtn = document.getElementById('registerBtn');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeModal = document.getElementById('closeModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        if (registerBtn && registerModal) {
+            registerBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerModal.classList.add('active');
+                userDropdown.classList.remove('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeModal && registerModal) {
+            closeModal.addEventListener('click', function() {
+                registerModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        if (modalOverlay && registerModal) {
+            modalOverlay.addEventListener('click', function() {
+                registerModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Toggle password visibility in modal
+        const togglePasswordModal = document.getElementById('togglePassword');
+        const passwordInputModal = document.getElementById('password');
+        const toggleConfirmPasswordModal = document.getElementById('toggleConfirmPassword');
+        const confirmPasswordInputModal = document.getElementById('confirmPassword');
+
+        if (togglePasswordModal && passwordInputModal) {
+            togglePasswordModal.addEventListener('click', function() {
+                const type = passwordInputModal.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInputModal.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        if (toggleConfirmPasswordModal && confirmPasswordInputModal) {
+            toggleConfirmPasswordModal.addEventListener('click', function() {
+                const type = confirmPasswordInputModal.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordInputModal.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+
+        // Password strength indicator in modal
+        const passwordStrengthModal = document.getElementById('passwordStrength');
+
+        if (passwordInputModal && passwordStrengthModal) {
+            passwordInputModal.addEventListener('input', function() {
+                const password = this.value;
+
+                if (password.length === 0) {
+                    passwordStrengthModal.classList.remove('active', 'weak', 'medium', 'strong');
+                    return;
+                }
+
+                passwordStrengthModal.classList.add('active');
+
+                let strength = 0;
+                if (password.length >= 8) strength++;
+                if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+                passwordStrengthModal.classList.remove('weak', 'medium', 'strong');
+
+                if (strength <= 2) {
+                    passwordStrengthModal.classList.add('weak');
+                } else if (strength === 3) {
+                    passwordStrengthModal.classList.add('medium');
+                } else {
+                    passwordStrengthModal.classList.add('strong');
+                }
+            });
+        }
+
+        // Form validation
+        const registerFormElement = document.getElementById('registerForm');
+
+        if (registerFormElement) {
+            registerFormElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const username = document.getElementById('username').value;
+                const password = passwordInputModal.value;
+                const confirmPassword = confirmPasswordInputModal.value;
+
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Пожалуйста, введите корректный email адрес');
+                    return;
+                }
+
+                // Validate username
+                if (username.length < 3) {
+                    alert('Имя пользователя должно содержать минимум 3 символа');
+                    return;
+                }
+
+                // Validate password
+                if (password.length < 8) {
+                    alert('Пароль должен содержать минимум 8 символов');
+                    return;
+                }
+
+                // Check password match
+                if (password !== confirmPassword) {
+                    alert('Пароли не совпадают');
+                    return;
+                }
+
+                // If all validations pass, submit the form
+                alert('Регистрация успешна! (Форма будет отправлена на сервер)');
+                // this.submit(); // Uncomment when backend is ready
+            });
+        }
+    </script>
+
+</body>
+</html>
